@@ -1,0 +1,40 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ml
+  labels:
+    app: ml
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: ml
+  template:
+    metadata:
+      labels:
+        app: ml
+    spec:
+      containers:
+      - name: ml
+        image: vladargunov/example-image-classification:0.0.1
+        ports:
+        - containerPort: 80
+        env:
+          - name: ENV
+            value: "DEV"
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: ml-private-ip
+  annotations:
+    service.beta.kubernetes.io/openstack-internal-load-balancer: "true"
+spec:
+  type: LoadBalancer
+  ports:
+  - port: 80
+    targetPort: 80
+    protocol: TCP
+    name: http
+  selector:
+    app: ml

@@ -1,0 +1,7 @@
+fastapi~=0.68.2
+uvicorn~=0.20.0
+pydantic~=1.8.0
+--find-links https://download.pytorch.org/whl/torch_stable.html
+torch==1.13.1+cpu
+torchvision==0.14.1+cpu
+python-multipart==0.0.5

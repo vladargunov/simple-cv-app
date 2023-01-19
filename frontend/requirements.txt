@@ -1,0 +1,4 @@
+pyramid==2.0
+waitress
+requests
+pyramid_jinja2

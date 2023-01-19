@@ -1,0 +1,14 @@
+# Config kubernetes
+test-kubernetes_kubeconfig.yaml
+
+# Virtual environemnts
+.venv
+
+# Pycache
+__pycache__
+
+# MacOS files
+.DS_Store
+
+# Start-up files
+model-ml/start_kubectl.sh
